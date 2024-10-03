@@ -53,6 +53,11 @@ echo -e "\033[93mUpdating and upgrading system packages...\033[0m"
 apt update && apt upgrade -y
 check_command "System update and upgrade"
 
+# Install essential packages
+echo -e "\033[93mInstalling essential packages (nano, curl, wget, etc.)...\033[0m"
+apt install -y nano curl wget
+check_command "Installation of essential packages"
+
 # Continue with the installation process (regardless of choice)
 # Prerequisite: Install K3s
 echo -e "\033[93mInstalling K3s...\033[0m"
