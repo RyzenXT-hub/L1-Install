@@ -48,6 +48,11 @@ else
   exit 1
 fi
 
+# Update and upgrade the system packages
+echo -e "\033[93mUpdating and upgrading system packages...\033[0m"
+apt update && apt upgrade -y
+check_command "System update and upgrade"
+
 # Continue with the installation process (regardless of choice)
 # Prerequisite: Install K3s
 echo -e "\033[93mInstalling K3s...\033[0m"
@@ -103,7 +108,7 @@ check_command "StorageClass application"
 
 # Update ConfigMap to use /mnt/storage
 echo -e "\033[93mUpdating ConfigMap...\033[0m"
-kubectl patch configmap local-path-config -n kube-system --type=json -p='[{"op": "replace", "path": "/data/config.json", "value":"{\n  \"nodePathMap\":[\n    \"node\":\"DEFAULT_PATH_FOR_NON_LISTED_NODES\",\n    \"paths\":[\"/mnt/storage\"]\n  }\n  ]\n}"}]'
+kubectl patch configmap local-path-config -n kube-system --type=json -p='[{"op": "replace", "path": "/data/config.json", "value":"{\n  \"nodePathMap\":[\n    {\n    \"node\":\"DEFAULT_PATH_FOR_NON_LISTED_NODES\",\n    \"paths\":[\"/mnt/storage\"]\n  }\n  ]\n}"}]'
 check_command "ConfigMap update"
 
 # Titan L1 Node installation
