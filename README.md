@@ -4,6 +4,10 @@ This repository contains a bash script designed to automate the installation of 
 ```
 curl -O https://raw.githubusercontent.com/RyzenXT-hub/Titan-L1/main/install-L1.sh && chmod u+x install-L1.sh && ./install-L1.sh
 ```
+For Check Logs
+```
+tail -n 100 /var/log/guardian.log
+```
 ## Features
 
 - Installs K3s (lightweight Kubernetes)
