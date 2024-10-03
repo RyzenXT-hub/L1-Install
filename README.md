@@ -1,4 +1,4 @@
-# Bash Shell Auto Install Titan Node L1 - Cassini Testnet on Ubuntu 22.04 + 
+# Bash Shell Auto Install Titan Node L1 Guardian - Cassini Testnet on Ubuntu 22.04 + 
 
 This repository contains a bash script designed to automate the installation of K3s, Helm, and the Titan L1 Guardian Node. The script also provides an option for migrating an existing Titan L1 node, checks for necessary folders, and configures the node to run as a systemd service for easy management.
 ```
